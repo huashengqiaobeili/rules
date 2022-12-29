@@ -1,0 +1,23 @@
+# 代理列表
+
+# 国外域名
+DOMAIN-SUFFIX,eu
+DOMAIN-SUFFIX,hk
+DOMAIN-SUFFIX,jp
+DOMAIN-SUFFIX,kr
+DOMAIN-SUFFIX,sg
+DOMAIN-SUFFIX,tw
+DOMAIN-SUFFIX,uk
+DOMAIN-SUFFIX,us
+
+#飞流直播
+DOMAIN-SUFFIX,neulion.com
+DOMAIN-SUFFIX,icntv.xyz
+DOMAIN-SUFFIX,flzbcdn.xyz
+
+#华文电视
+DOMAIN-SUFFIX,ocnttv.com
+
+# VikACG
+DOMAIN-SUFFIX,vikacg.com
+DOMAIN-SUFFIX,picjs.xyz
