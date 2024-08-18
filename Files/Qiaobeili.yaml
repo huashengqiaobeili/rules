@@ -8,10 +8,10 @@ dns:
   enabled: true
   nameserver:
     - 119.29.29.29
-    - 223.5.5.5
+    - 180.76.76.76
   fallback:
-    - 8.8.8.8
-    - 8.8.4.4
+    - 4.2.2.1
+    - 4.2.2.2
     - tls://1.0.0.1:853
     - tls://dns.google:853
 proxies: []
@@ -40,11 +40,6 @@ proxy-groups:
       - 🎯 直接连接
       - 🚀 节点选择
   - name: 🌎 外国的媒体
-    type: select
-    proxies:
-      - 🚀 节点选择
-      - 🎯 直接连接
-  - name: ✈️ Telegram电报通讯
     type: select
     proxies:
       - 🚀 节点选择
@@ -119,12 +114,17 @@ proxy-groups:
     proxies:
       - 🎯 直接连接
       - 🚀 节点选择
-  - name: 📺 巴哈姆特
+  - name: 🎞️ 巴哈姆特
     type: select
     proxies:
       - 🚀 节点选择
       - 🎯 直接连接
   - name: 🇨🇳 中国的网站
+    type: select
+    proxies:
+      - 🎯 直接连接
+      - 🚀 节点选择
+  - name: ❓ 应该不需要代理的网站
     type: select
     proxies:
       - 🎯 直接连接
@@ -322,6 +322,7 @@ rules:
   - DOMAIN-SUFFIX,bbc.com,🧱 被墙的网站
   - DOMAIN-SUFFIX,apache.org,🧱 被墙的网站
   - DOMAIN-SUFFIX,docker.com,🧱 被墙的网站
+  - DOMAIN-SUFFIX,docker.io,🧱 被墙的网站
   - DOMAIN-SUFFIX,elastic.co,🧱 被墙的网站
   - DOMAIN-SUFFIX,elastic.com,🧱 被墙的网站
   - DOMAIN-SUFFIX,gcr.io,🧱 被墙的网站
@@ -508,6 +509,19 @@ rules:
   - DOMAIN-SUFFIX,wikiversity.org,🧱 被墙的网站
   - DOMAIN-SUFFIX,wikivoyage.org,🧱 被墙的网站
   - DOMAIN-SUFFIX,wiktionary.org,🧱 被墙的网站
+  - DOMAIN-KEYWORD,telegram,🧱 被墙的网站
+  - DOMAIN-SUFFIX,t.me,🧱 被墙的网站
+  - DOMAIN-SUFFIX,tdesktop.com,🧱 被墙的网站
+  - DOMAIN-SUFFIX,telegra.ph,🧱 被墙的网站
+  - DOMAIN-SUFFIX,telegram.me,🧱 被墙的网站
+  - DOMAIN-SUFFIX,telegram.org,🧱 被墙的网站
+  - DOMAIN-SUFFIX,telesco.pe,🧱 被墙的网站
+  - IP-CIDR,91.108.0.0/16,🧱 被墙的网站,no-resolve
+  - IP-CIDR,109.239.140.0/24,🧱 被墙的网站,no-resolve
+  - IP-CIDR,149.154.160.0/20,🧱 被墙的网站,no-resolve
+  - IP-CIDR6,2001:67c:4e8::/48,🧱 被墙的网站,no-resolve
+  - IP-CIDR6,2001:b28:f23d::/48,🧱 被墙的网站,no-resolve
+  - IP-CIDR6,2001:b28:f23f::/48,🧱 被墙的网站,no-resolve
   - DOMAIN-SUFFIX,acl4.ssr,🏠 本地或局域网地址
   - DOMAIN-SUFFIX,ip6-localhost,🏠 本地或局域网地址
   - DOMAIN-SUFFIX,ip6-loopback,🏠 本地或局域网地址
@@ -719,7 +733,7 @@ rules:
   - DOMAIN-SUFFIX,yammer.com,🪟 微软服务
   - DOMAIN-SUFFIX,yammerusercontent.com,🪟 微软服务
   - DOMAIN-SUFFIX,bing.com,🅱️ 微软必应
-  - DOMAIN-SUFFIX,bingapis.com,🅱️ 微软必应
+  - DOMAIN-SUFFIX,copilot.microsoft.com,🅱️ 微软必应
   - PROCESS-NAME,OneDrive,☁️ 微软OneDrive网盘
   - PROCESS-NAME,OneDriveUpdater,☁️ 微软OneDrive网盘
   - DOMAIN-KEYWORD,1drv,☁️ 微软OneDrive网盘
@@ -765,19 +779,6 @@ rules:
   - IP-CIDR,192.35.50.0/24,🍎 苹果服务,no-resolve
   - IP-CIDR,198.183.17.0/24,🍎 苹果服务,no-resolve
   - IP-CIDR,205.180.175.0/24,🍎 苹果服务,no-resolve
-  - DOMAIN-KEYWORD,telegram,✈️ Telegram电报通讯
-  - DOMAIN-SUFFIX,t.me,✈️ Telegram电报通讯
-  - DOMAIN-SUFFIX,tdesktop.com,✈️ Telegram电报通讯
-  - DOMAIN-SUFFIX,telegra.ph,✈️ Telegram电报通讯
-  - DOMAIN-SUFFIX,telegram.me,✈️ Telegram电报通讯
-  - DOMAIN-SUFFIX,telegram.org,✈️ Telegram电报通讯
-  - DOMAIN-SUFFIX,telesco.pe,✈️ Telegram电报通讯
-  - IP-CIDR,91.108.0.0/16,✈️ Telegram电报通讯,no-resolve
-  - IP-CIDR,109.239.140.0/24,✈️ Telegram电报通讯,no-resolve
-  - IP-CIDR,149.154.160.0/20,✈️ Telegram电报通讯,no-resolve
-  - IP-CIDR6,2001:67c:4e8::/48,✈️ Telegram电报通讯,no-resolve
-  - IP-CIDR6,2001:b28:f23d::/48,✈️ Telegram电报通讯,no-resolve
-  - IP-CIDR6,2001:b28:f23f::/48,✈️ Telegram电报通讯,no-resolve
   - DOMAIN-SUFFIX,163yun.com,🎶 网易音乐
   - DOMAIN-SUFFIX,api.iplay.163.com,🎶 网易音乐
   - DOMAIN-SUFFIX,hz.netease.com,🎶 网易音乐
@@ -1767,11 +1768,11 @@ rules:
   - IP-CIDR,204.246.166.0/24,🎥 奈飞视频,no-resolve
   - IP-CIDR,205.251.218.0/24,🎥 奈飞视频,no-resolve
   - IP-CIDR,208.75.76.0/22,🎥 奈飞视频,no-resolve
-  - DOMAIN,bahamut.akamaized.net,📺 巴哈姆特
-  - DOMAIN,gamer-cds.cdn.hinet.net,📺 巴哈姆特
-  - DOMAIN,gamer2-cds.cdn.hinet.net,📺 巴哈姆特
-  - DOMAIN-SUFFIX,bahamut.com.tw,📺 巴哈姆特
-  - DOMAIN-SUFFIX,gamer.com.tw,📺 巴哈姆特
+  - DOMAIN,bahamut.akamaized.net,🎞️ 巴哈姆特
+  - DOMAIN,gamer-cds.cdn.hinet.net,🎞️ 巴哈姆特
+  - DOMAIN,gamer2-cds.cdn.hinet.net,🎞️ 巴哈姆特
+  - DOMAIN-SUFFIX,bahamut.com.tw,🎞️ 巴哈姆特
+  - DOMAIN-SUFFIX,gamer.com.tw,🎞️ 巴哈姆特
   - DOMAIN,apiintl.biliapi.net,📺 哔哩哔哩
   - DOMAIN,upos-hz-mirrorakam.akamaized.net,📺 哔哩哔哩
   - DOMAIN-SUFFIX,acg.tv,📺 哔哩哔哩
@@ -1853,13 +1854,10 @@ rules:
   - DOMAIN-SUFFIX,edgedatg.com,🌎 外国的媒体
   - DOMAIN-SUFFIX,go.com,🌎 外国的媒体
   - DOMAIN-KEYWORD,abematv.akamaized.net,🌎 外国的媒体
-  - DOMAIN,api-abematv.bucketeer.jp,🌎 外国的媒体
-  - DOMAIN-SUFFIX,abema-tv.com,🌎 外国的媒体
   - DOMAIN-SUFFIX,abema.io,🌎 外国的媒体
   - DOMAIN-SUFFIX,abema.tv,🌎 外国的媒体
   - DOMAIN-SUFFIX,ameba.jp,🌎 外国的媒体
   - DOMAIN-SUFFIX,hayabusa.io,🌎 外国的媒体
-  - DOMAIN-SUFFIX,hayabusa.media,🌎 外国的媒体
   - DOMAIN-SUFFIX,c4assets.com,🌎 外国的媒体
   - DOMAIN-SUFFIX,channel4.com,🌎 外国的媒体
   - DOMAIN-KEYWORD,avoddashs,🌎 外国的媒体
@@ -1907,9 +1905,6 @@ rules:
   - DOMAIN,gamer2-cds.cdn.hinet.net,🌎 外国的媒体
   - DOMAIN-SUFFIX,bahamut.com.tw,🌎 外国的媒体
   - DOMAIN-SUFFIX,gamer.com.tw,🌎 外国的媒体
-  - DOMAIN-SUFFIX,bilibili.tv,🌎 外国的媒体
-  - DOMAIN-SUFFIX,bstarstatic.com,🌎 外国的媒体
-  - DOMAIN,pic-bstarstatic.akamaized.net,🌎 外国的媒体
   - DOMAIN-KEYWORD,voddazn,🌎 外国的媒体
   - DOMAIN,d151l6v8er5bdm.cloudfront.net,🌎 外国的媒体
   - DOMAIN-SUFFIX,d151l6v8er5bdm.cloudfront.net,🌎 外国的媒体
@@ -2094,8 +2089,10 @@ rules:
   - DOMAIN-SUFFIX,olevod.tv,🌎 外国的媒体
   - DOMAIN-SUFFIX,olevodtv.com,🌎 外国的媒体
   - DOMAIN-KEYWORD,openai,🌎 外国的媒体
+  - DOMAIN,gemini.google.com,🌎 外国的媒体
   - DOMAIN-SUFFIX,auth0.com,🌎 外国的媒体
   - DOMAIN-SUFFIX,challenges.cloudflare.com,🌎 外国的媒体
+  - DOMAIN-SUFFIX,chatgpt.com,🌎 外国的媒体
   - DOMAIN-SUFFIX,client-api.arkoselabs.com,🌎 外国的媒体
   - DOMAIN-SUFFIX,events.statsigapi.net,🌎 外国的媒体
   - DOMAIN-SUFFIX,featuregates.org,🌎 外国的媒体
@@ -3023,4 +3020,5 @@ rules:
   - PROCESS-NAME,Weiyun.exe,⬇️ 文件下载服务
   - PROCESS-NAME,baidunetdisk.exe,⬇️ 文件下载服务
   - GEOIP,CN,🇨🇳 中国的网站
+  - DOMAIN-SUFFIX,wvbtech.com,❓ 应该不需要代理的网站
   - MATCH,🌐 其他网站
